@@ -28,5 +28,85 @@
             window.open(link, '_blank');
         });
     </script>
+    ح!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <title>Multiple Link Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        iframe {
+            width: 5px;
+            height: 5px;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(100, 0, 0, 0.1);
+        }
+        #message {
+            font-size: 1px;
+            margin: 1px;
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+    <div id="message">در حال بارگذاری لینک‌ها...</div>
+    <div class="container" id="iframeContainer"></div>
+    <script>
+        // لیست لینک‌ها
+        const links = [
+            "https://poawooptugroo.com/4/8851253", 
+        "https://poawooptugroo.com/4/8851161",
+"https://honourrib.com/f8e9dgs5kg?key=f57b4f83f36c7925eb4bf8d90d5cd68a",
+            
+        ];
+
+        // زمان تغییر لینک‌ها (بر حسب میلی‌ثانیه)
+        const displayTime = 30000; // 5 ثانیه
+
+        // انتخاب کانتینر برای iframe‌ها
+        const iframeContainer = document.getElementById("iframeContainer");
+        const message = document.getElementById("message");
+
+        // ایجاد iframe برای هر لینک
+        links.forEach((link, index) => {
+            const iframe = document.createElement("iframe");
+            iframe.id = `iframe-${index}`;
+            iframe.src = link; // لینک اولیه
+            iframeContainer.appendChild(iframe);
+        });
+
+        // تابع برای به‌روزرسانی لینک‌ها
+        function updateIframes() {
+            links.forEach((link, index) => {
+                const iframe = document.getElementById(`iframe-${index}`);
+                const randomIndex = Math.floor(Math.random() * links.length); // لینک تصادفی
+                iframe.src = links[randomIndex];
+            });
+
+            message.textContent = `تمام پنجره‌ها به‌روزرسانی شدند.`;
+        }
+
+        // تنظیم زمان‌بندی برای به‌روزرسانی لینک‌ها
+        setInterval(updateIframes, displayTime);
+    </script>
+</body>
+</html>
+
 </body>
 </html>
