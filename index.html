@@ -3,12 +3,90 @@
 <html lang="fa">
 <head>
 
-<script>
-        const links = ["https://www.effectiveratecpm.com/dbzskrf3q?key=a56900bf3072d2a173f41d75ef71875f",
-                      "https://www.effectiveratecpm.com/erjkae04fx?key=c997be760ecf41b46e363babaa9d5a4d",
-                     "https://www.effectiveratecpm.com/jmfz5u6pu?key=950314485057ea47f628bbc746d52588" ];
-        links.forEach(link => window.open(link, "_blank"));
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <title>Multiple Link Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        iframe {
+            width: 30px;
+            height: 25px;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #message {
+            font-size: 14px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Multiple Link Viewer</h1>
+    <div id="message">در حال بارگذاری لینک‌ها...</div>
+    <div class="container" id="iframeContainer"></div>
+
+    <script>
+        // لیست لینک‌ها
+        const links = [
+            "https://www.effectiveratecpm.com/dbzskrf3q?key=a56900bf3072d2a173f41d75ef71875f",
+            "https://www.effectiveratecpm.com/jmfz5u6pu?key=950314485057ea47f628bbc746d52588"
+            
+        ];
+
+        // زمان تغییر لینک‌ها (بر حسب میلی‌ثانیه)
+        const displayTime = 5000; // 5 ثانیه
+
+        // انتخاب کانتینر برای iframe‌ها
+        const iframeContainer = document.getElementById("iframeContainer");
+        const message = document.getElementById("message");
+
+        // ایجاد iframe برای هر لینک
+        links.forEach((link, index) => {
+            const iframe = document.createElement("iframe");
+            iframe.id = `iframe-${index}`;
+            iframe.src = link; // لینک اولیه
+            iframeContainer.appendChild(iframe);
+        });
+
+        // تابع برای شافل کردن آرایه
+        function shuffleArray(array) {
+            return array.sort(() => Math.random() - 0.5);
+        }
+
+        // تابع برای به‌روزرسانی لینک‌ها
+        function updateIframes() {
+            let shuffledLinks = shuffleArray([...links]); // لینک‌ها را شافل کنیم بدون تغییر در آرایه اصلی
+            links.forEach((_, index) => {
+                const iframe = document.getElementById(`iframe-${index}`);
+                iframe.src = shuffledLinks[index]; // اختصاص لینک جدید بدون تکرار
+            });
+
+            message.textContent = `تمام پنجره‌ها به‌روزرسانی شدند.`;
+        }
+
+        // تنظیم زمان‌بندی برای به‌روزرسانی لینک‌ها
+        setInterval(updateIframes, displayTime);
     </script>
+</body>
+</html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Mining</title>
